@@ -1,0 +1,32 @@
+version: '3'
+services:
+  app:
+    build: ./src
+    environment:
+      - PORT=${PORT}
+      - DB_TYPE=${DB_TYPE}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+    ports:
+      - '${PORT}:${PORT}'
+    links:
+      - db
+    volumes:
+      - ./src:/app
+    depends_on:
+      - db
+    network_mode: bridge
+    restart: on-failure
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRESQL_DATABASE=${DB_NAME}
+      - POSTGRESQL_ROOT_PASSWORD=${DB_PASSWORD}
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db-scripts:/docker-entrypoint-initdb.d
+    network_mode: bridge

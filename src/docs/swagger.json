@@ -1,0 +1,49 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is documentation for Smart Capacity API.",
+    "version": "1.0.0",
+    "title": "Smart Capacity Fixed",
+    "contact": {
+      "email": "mohamed.elzanaty3@vodafone.com"
+    }
+  },
+  "host": "localhost:3000",
+  "schemes": ["http"],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Logs user into the system",
+        "produces": ["application/xml", "application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal server error"
+          },
+          "400": {
+            "description": "Invalid email/password supplied"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "users": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
