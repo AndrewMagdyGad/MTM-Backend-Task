@@ -135,7 +135,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/post/all?page=1&&itemsPerPage=5",
+							"raw": "http://localhost:3000/api/post/all?page=1&itemsPerPage=5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -150,10 +150,6 @@
 								{
 									"key": "page",
 									"value": "1"
-								},
-								{
-									"key": null,
-									"value": null
 								},
 								{
 									"key": "itemsPerPage",
